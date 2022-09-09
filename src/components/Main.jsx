@@ -6,22 +6,23 @@ import {
   Route,
   Redirect,
   Routes,
+  Router,
   MemoryRouter,
+  Navigate,
 } from "react-router-native";
 import PeopleList from "./PeopleList.jsx";
 import AppBar from "./AppBar.jsx";
+
+/** */
 
 export default function Main() {
   return (
     <View style={{ flex: 1 }}>
       <AppBar />
-      <Switch>
-        <Route path="/" exact></Route>
-        <Route path="/signin" exact>
-          <Text>Working on it</Text>
-        </Route>
-        <Redirect to="/" />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<PeopleList />} />
+        <Route path="/signin" exact element={<Text>Working on it</Text>} />
+      </Routes>
     </View>
   );
 }

@@ -2,12 +2,16 @@ import { View, ViewPropTypes, StyleSheet, StatusBar } from "react-native";
 import Constants from "expo-constants";
 import StyledText from "./StyledText";
 import theme from "../theme";
-import { Link } from "react-router-native";
+import { Link, useLocation } from "react-router-native";
+import { ScrollView } from "react-native";
 
-function AppBarTab({ active, children, to }) {
+function AppBarTab({ children, to }) {
+  const { pathname } = useLocation();
+  const active = pathname === to;
+  const textStyles = [styles.text, active && styles.active];
   return (
     <Link to={to}>
-      <StyledText style={styles.text} fontWeight="bold">
+      <StyledText style={textStyles} fontWeight="bold">
         {children}
       </StyledText>
     </Link>
@@ -23,9 +27,10 @@ export default function AppBar() {
         animated={true}
         hidden={false}
       ></StatusBar>
-      <StyledText style={styles.text} fontWeight="bold">
-        People
-      </StyledText>
+      <ScrollView horizontal style={styles.scrollView}>
+        <AppBarTab to="/">People</AppBarTab>
+        <AppBarTab to="/signin">Sign in</AppBarTab>
+      </ScrollView>
     </View>
   );
 }
@@ -38,6 +43,13 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   text: {
+    paddingHorizontal: 10,
+    color: theme.appBar.textSecondary,
+  },
+  scrollView: {
+    paddingBottom: 10,
+  },
+  active: {
     color: theme.appBar.textPrimary,
   },
 });
