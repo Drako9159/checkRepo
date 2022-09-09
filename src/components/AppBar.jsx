@@ -21,12 +21,6 @@ function AppBarTab({ children, to }) {
 export default function AppBar() {
   return (
     <View style={styles.container}>
-      <StatusBar
-        backgroundColor="#0366d6"
-        barStyle="light-content"
-        animated={true}
-        hidden={false}
-      ></StatusBar>
       <ScrollView horizontal style={styles.scrollView}>
         <AppBarTab to="/">People</AppBarTab>
         <AppBarTab to="/signin">Sign in</AppBarTab>

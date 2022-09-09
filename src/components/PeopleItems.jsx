@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Platform } from "react-native";
 import StyledText from "./StyledText";
 import PeopleStats from "./PeopleStats";
 import theme from "../theme";
