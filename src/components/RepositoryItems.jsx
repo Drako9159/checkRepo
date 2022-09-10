@@ -1,27 +1,38 @@
 import { View, Text, StyleSheet, Image, Platform } from "react-native";
 import StyledText from "./StyledText";
-import PeopleStats from "./PeopleStats";
+import RepositoryStats from "./RepositoryStats";
 import theme from "../theme";
 import imgMoon from "../assets/moon.png";
 
-function PeopleItemsHeader({ id }) {
+function RepositoryItemsHeader({
+  ownerAvatarUrl,
+  fullName,
+  description,
+  language,
+}) {
   return (
     <View style={{ flexDirection: "row", paddingBottom: 2 }}>
-      <Image source={imgMoon} style={styles.image}></Image>
-      <View style={{ paddingRight: 18, justifyContent: "center" }}>
-        <StyledText style={styles.name} fontSize="subheading" fontWeight="bold">
-          id: {id}
+      <View style={{ paddingRight: 10 }}>
+        <Image style={styles.image} source={{ uri: ownerAvatarUrl }} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <StyledText fontWeight="bold">{fullName}</StyledText>
+        <StyledText fontSize="subheading" fontWeight="bold">
+          {description}
+        </StyledText>
+        <StyledText fontSize="subheading" fontWeight="bold">
+          {language}
         </StyledText>
       </View>
     </View>
   );
 }
 
-export default function PeopleItems({ people }) {
+export default function RepositoryItems({ props }) {
   return (
-    <View key={people.id} style={styles.container}>
-      <PeopleItemsHeader {...people} />
-      <PeopleStats {...people} />
+    <View key={props.id} style={styles.container}>
+      <RepositoryItemsHeader {...props} />
+      <RepositoryStats {...props} />
     </View>
   );
 }

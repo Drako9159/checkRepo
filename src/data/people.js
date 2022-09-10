@@ -1,8 +1,8 @@
 export default [
   {
-    id: 0,
-    name: "Antonio",
-    apellido: "Garcia",
+    id: "midudev",
+    fullName: "Antonio",
+    description: "Garcia",
     edad: 20,
   },
   {

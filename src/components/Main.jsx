@@ -11,7 +11,7 @@ import {
   MemoryRouter,
   Navigate,
 } from "react-router-native";
-import PeopleList from "./PeopleList.jsx";
+import RepositoryList from "./RepositoryList.jsx";
 import AppBar from "./AppBar";
 import Login from "../pages/Login.jsx";
 /** */
@@ -21,7 +21,7 @@ export default function Main() {
     <View style={{ flex: 1 }}>
       <AppBar />
       <Routes>
-        <Route path="/" element={<PeopleList />} />
+        <Route path="/" element={<RepositoryList />} />
         <Route path="/signin" exact element={<Login />} />
       </Routes>
     </View>
