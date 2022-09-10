@@ -1,16 +1,7 @@
 import React from "react";
-import Constants from "expo-constants";
-import { StyleSheet, View, Text } from "react-native";
 
-import {
-  Switch,
-  Route,
-  Redirect,
-  Routes,
-  Router,
-  MemoryRouter,
-  Navigate,
-} from "react-router-native";
+import { View } from "react-native";
+import { Route, Routes } from "react-router-native";
 import RepositoryList from "./RepositoryList.jsx";
 import AppBar from "./AppBar";
 import Login from "../pages/Login.jsx";

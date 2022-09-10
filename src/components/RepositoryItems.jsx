@@ -1,41 +1,35 @@
-import { View, Text, StyleSheet, Image, Platform } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import StyledText from "./StyledText";
 import RepositoryStats from "./RepositoryStats";
 import theme from "../theme";
-import imgMoon from "../assets/moon.png";
 
-function RepositoryItemsHeader({
+const RepositoryItemHeader = ({
   ownerAvatarUrl,
   fullName,
   description,
   language,
-}) {
-  return (
-    <View style={{ flexDirection: "row", paddingBottom: 2 }}>
-      <View style={{ paddingRight: 10 }}>
-        <Image style={styles.image} source={{ uri: ownerAvatarUrl }} />
-      </View>
-      <View style={{ flex: 1 }}>
-        <StyledText fontWeight="bold">{fullName}</StyledText>
-        <StyledText fontSize="subheading" fontWeight="bold">
-          {description}
-        </StyledText>
-        <StyledText fontSize="subheading" fontWeight="bold">
-          {language}
-        </StyledText>
-      </View>
+}) => (
+  <View style={{ flexDirection: "row", paddingBottom: 2 }}>
+    <View style={{ paddingRight: 10 }}>
+      <Image style={styles.image} source={{ uri: ownerAvatarUrl }} />
     </View>
-  );
-}
+    <View style={{ flex: 1 }}>
+      <StyledText fontWeight="bold">{fullName}</StyledText>
+      <StyledText color="secondary">{description}</StyledText>
+      <StyledText style={styles.language}>{language}</StyledText>
+    </View>
+  </View>
+);
 
-export default function RepositoryItems({ props }) {
+export default function RepositoryItems(props) {
   return (
-    <View key={props.id} style={styles.container}>
-      <RepositoryItemsHeader {...props} />
+    <View style={styles.container}>
+      <RepositoryItemHeader {...props} />
       <RepositoryStats {...props} />
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     padding: 20,

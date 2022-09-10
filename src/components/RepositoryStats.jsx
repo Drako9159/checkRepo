@@ -7,14 +7,8 @@ function parseThousands(value) {
 
 export default function RepositoryStats(props) {
   return (
-    <View
-      style={{
-        backgroundColor: "yellow",
-        flexDirection: "row",
-        justifyContent: "space-between",
-      }}
-    >
-      <View fontWeight="bold">
+    <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+      <View>
         <StyledText align="center" fontWeight="bold">
           {parseThousands(props.stargazersCount)}
         </StyledText>

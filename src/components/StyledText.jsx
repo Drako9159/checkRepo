@@ -42,5 +42,9 @@ export default function StyledText({
     fontWeight === "bold" && styles.bold,
     style,
   ];
-  return <Text style={textStyle}>{children}</Text>;
+  return (
+    <Text style={textStyle} {...restOfProps}>
+      {children}
+    </Text>
+  );
 }
