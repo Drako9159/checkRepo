@@ -9,6 +9,7 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-
+rate-repository-api
+```
 # macOS
 .DS_Store
